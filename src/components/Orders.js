@@ -5,23 +5,23 @@ const Orders = () => {
     const navigate = useNavigate();
     const [orders, setOrders] = useState([]);
 
-    useEffect( () =>{
+    useEffect(() => {
         fetch('http://localhost:5000/orders', {
-            method: 'GET', 
-            headers:{
+            method: 'GET',
+            headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
-        .then(res => {
-            if(res.status === 401 || res.status===403){
-                navigate('/login');
-            }
-            return res.json()
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    navigate('/login');
+                }
+                return res.json(
         })
-        .then(data =>{
-            console.log(data);
-            setOrders(data);
-        })
+            .then(data => {
+                console.log(data);
+                setOrders(data);
+            })
     }, [])
 
     return (
