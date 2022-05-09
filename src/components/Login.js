@@ -20,16 +20,16 @@ const Login = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({email, password})
+            body: JSON.stringify({ email, password })
         })
-        .then(res => res.json())
-        .then(data =>{
-            if(data.success){
-                localStorage.setItem('accessToken', data.accessToken);
-                navigate('/orders');
-            }
-            console.log(data);
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.setItem('accessToken', data.accessToken);
+                    navigate('/orders');
+                }
+                console.log(data);
+            })
     }
 
     return (
