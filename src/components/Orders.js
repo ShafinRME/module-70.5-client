@@ -17,7 +17,7 @@ const Orders = () => {
                     navigate('/login');
                 }
                 return res.json(
-        })
+            })
             .then(data => {
                 console.log(data);
                 setOrders(data);
